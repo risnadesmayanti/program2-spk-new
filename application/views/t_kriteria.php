@@ -134,21 +134,19 @@
 	    				<h3 class="panel-title"><span class="glyphicon glyphicon-pencil aria-hidden="true"></span>&nbsp;&nbsp;Formulir Tambah Kriteria</h3>
 				  	</div>
 	  				<div class="panel-body">
-	  					<form action="" method="post" id="new" accept-charset="utf-8">
+						<?php echo form_open('Welcome/inputk'); ?>
 	  						<div class="row" style="padding-top: 10px;">
 								<div class="row col-lg-1">
 								</div>
 								<div class="col-md-3 form-group">
-									<input type="text" name="kriteria" id="kriteria" placeholder="Nama Kriteria" class="form-control">
+									<input type="text" name="kriteria" placeholder="Nama Kriteria" class="form-control">
 								</div>
 								<div class="col-md-7 form-group">
-									<textarea name="deskripsi" class="form-control" id="deskripsi" placeholder="Deksripsi Kriteria" rows="6"></textarea>
+									<textarea name="deskripsi" class="form-control" placeholder="Deksripsi Kriteria" rows="6"></textarea>
 								</div>
 							</div>							
-						</form>
 						<hr>
 						<h3>Perbandingan Kriteria dengan Nilai Alternatif</h3><br>
-						<?php echo form_open('Welcome/inputk'); ?>
 					  		<?php foreach($kriteria as $i){ ?>
 					  		<div class="">
 					  			<div class="form-group">
@@ -169,48 +167,11 @@
 					  		</div>	
 					  		<?php } ?>
 					  		<div class="">
-					  		<input type="hidden" id="krit" name="kriteria">
-					  		<input type="hidden" id="desk" name="deskripsi" >
 					  		<input type="submit" name="eigenk" value="Submit" class="form-control btn-success">
 					  		</div>
 					  	</form>
 					</div>
 				</div>	
-			</div>
-		</div>
-		<div id="eigenkriteria" class="row" style="display: none;">
-			<div class="col-lg-8" style="left: 15%">
-				<div class="panel panel-danger">
-	  				
-				  	<div class="panel-body">
-	  				  	<?php echo form_open('Welcome/inputk'); ?>
-					  		<?php foreach($kriteria as $i){ ?>
-					  		<div class="">
-					  			<div class="form-group">
-					  				<label name="labelinput"><?php echo $i['kriteria']; ?></label>
-					  				<input type="text" name="arr[]" class="form-control">
-					  			</div>	
-					  		</div>	
-					  		<?php } ?>
-					  		<div>
-					  			<b id="matvalue"><u>Perbandingan Nilai tiap Alternatif (Kuantitatif)</u></b>
-					  		</div>
-					  		<?php foreach($alternatif as $i){ ?>
-					  		<div class="">
-					  			<div class="form-group">
-					  				<label name="labelinput"><?php echo $i['nama']; ?></label>
-					  				<input type="text" name="arra[]" class="form-control">
-					  			</div>	
-					  		</div>	
-					  		<?php } ?>
-					  		<div class="">
-					  		<input type="hidden" id="krit" name="kriteria">
-					  		<input type="hidden" id="desk" name="deskripsi" >
-					  		<input type="submit" name="eigenk" value="Submit" class="form-control btn-success">
-					  		</div>
-					  	</form>
-					</div>
-				</div>
 			</div>
 		</div>
 		

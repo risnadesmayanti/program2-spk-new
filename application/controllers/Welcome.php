@@ -127,6 +127,7 @@ class Welcome extends CI_Controller {
 		$data = $this->input->post();
 		$kriteria['kriteria'] = $data['kriteria'];
 		$kriteria['deskripsi'] = $data['deskripsi'];
+		// var_dump($data);
 		$iid = $this->Kriteria->insert($kriteria);
 
 		$data['arr'][$this->Kriteria->selectAll()->num_rows()-1] = "1/1";
@@ -179,15 +180,15 @@ class Welcome extends CI_Controller {
 			// echo "<br>";
 		}
 
-		// for ($i=0; $i < $this->Alternatif->selectAll()->num_rows() ; $i++) { 
-		// 	$matriks['x'] = $this->Alternatif->selectAll()->num_rows()-1;
-		// 	$matriks['y'] = $i;
-		// 	$matriks['idk'] = $iid;
-		// 	$temp = explode('/',$data['arra'][$i]);
-		// 	$matriks['value'] = $temp[1]/$temp[0];
-		// 	// var_dump($matriks);
-		// 	if($i != $this->Alternatif->selectAll()->num_rows()-1) $this->Matriks->insert($matriks);
-		// }
+		for ($i=0; $i < $this->Alternatif->selectAll()->num_rows() ; $i++) { 
+			$matriks['x'] = $this->Alternatif->selectAll()->num_rows()-1;
+			$matriks['y'] = $i;
+			$matriks['idk'] = $iid;
+			$temp = explode('/',$data['arra'][$i]);
+			$matriks['value'] = $temp[1]/$temp[0];
+			// var_dump($matriks);
+			if($i != $this->Alternatif->selectAll()->num_rows()-1) $this->Matriks->insert($matriks);
+		}
 
 		// $mat2['arra']
 
@@ -196,8 +197,8 @@ class Welcome extends CI_Controller {
 	}
 	public function inputa(){
 		$data = $this->input->post();
-		$alt['nama'] = $data['mobil'];
-		$alt['deskripsi'] = $data['deskmobil'];
+		$alt['nama'] = $data['nama'];
+		$alt['deskripsi'] = $data['deskripsi'];
 		$eig['ida'] = $this->Alternatif->insert($alt);
 
 		foreach($data['arrv'] as $key => $val){

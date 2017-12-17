@@ -53,12 +53,12 @@
                         <a href="<?php echo site_url('welcome/t_alternatif') ?>">Tambah Alternatif</a>
                     </li>
 
-                    <li>
+<li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Kriteria <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
                                 <?php foreach ($kriteria as $key) { ?>
-										  	<a style="margin:0px 20px 10px 0px; font-size: 14px;" type="button" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" title="Deksripsi" data-content="<?php echo $key['deskripsi']; ?>"><?php echo $key['nama']; ?></a>
+										  	<a style="margin:0px 20px 10px 0px; font-size: 14px;" type="button" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" title="Deksripsi" data-content="<?php echo $key['deskripsi']; ?>"><?php echo $key['kriteria']; ?></a>
 										  <!-- 	<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										    	<span class="caret"></span>
 										    	<span class="sr-only">Toggle Dropdown</span>
@@ -134,7 +134,8 @@
 	    				<h3 class="panel-title"><span class="glyphicon glyphicon-pencil aria-hidden="true"></span>&nbsp;&nbsp;Formulir Tambah Alternatif</h3>
 				  	</div>
 	  				<div class="panel-body">
-	  					<form action="" method="post" id="new" accept-charset="utf-8">
+						<?php echo form_open('Welcome/inputa'); ?>
+	  					<!-- <form action="" method="post" id="new" accept-charset="utf-8"> -->
 	  						<div class="row" style="padding-top: 10px;">
 								<div class="col-md-3 form-group">
 									<input type="text" name="nama" placeholder="Nama Alternatif Baru" class="form-control">
@@ -144,10 +145,9 @@
 								</div>
 							
 							</div>							
-						</form>
+						<!-- </form> -->
 						<hr>
 						<h3>Perbandingan Setiap Alternatif dengan Kriteria</h3><br>
-						<?php echo form_open('Welcome/inputa'); ?>
 					  		<?php foreach($kriteria as $i){ ?>
 					  		<div class="">
 					  			<div class="form-group">
@@ -171,7 +171,7 @@
 			
 					  		<input type="submit" value="Submit" class="form-control btn-success">
 					  		</div>
-					  	</form>
+					  	<?php echo form_close(); ?>
 					</div>
 				</div>	
 			</div>
